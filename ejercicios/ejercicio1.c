@@ -2,29 +2,32 @@
 #include <stdlib.h>
 
 int main() {
-    int n,e;
-    printf("Ingrese el tamaño del arreglo: \n");
-    scanf("%d",&n); //leemos el tamaño del arreglo
+    int n; 
+    printf("Ingrese el tamaño del arreglo: ");
+    scanf("%d",&n); 
     
-    int*arr=(int*)malloc(n* sizeof(int));
+    int *arre=NULL; 
+    arre=(int*)malloc(n*sizeof(int)); 
 
-    if (arr == NULL) {
+    if (arre == NULL) {
         printf("Error: No se pudo asignar memoria.\n");
         return 1;
     }
 
     printf("Ingrese %d valores:\n", n);
     for (int i = 0; i < n; i++) {
-        scanf("%d",&e);
-        //printf("%d",arr[i]);
+        scanf("%d",(arre+i));  
     }
 
     printf("El arreglo es: ");
-    for (int i = 0; i < e; i++) { 
-        printf("%d \t",arr[e]);
+    for (int i = 0; i < n; i++) {
+        printf("\t %d", *(arre+i)); 
+        
     }
     printf("\n");
-
-    free(arr);
+    
+    free (arre); 
+    arre=NULL; 
+    
     return 0;
 }
